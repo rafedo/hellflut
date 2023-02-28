@@ -10,7 +10,7 @@ void main() {
         ),
         body: Center(
           child: Text(
-            'Hello World',
+            'Halo dunia',
             textDirection: TextDirection.ltr,
           ),
         ),
