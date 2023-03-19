@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:hellpro/main_screen.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      title: 'Hello world',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hello World'),
-        ),
-        body: Center(
-          child: Text(
-            'Halo dunia',
-            textDirection: TextDirection.ltr,
-          ),
-        ),
-      )
-    )
-  );
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Contacts',
+      theme: ThemeData(),
+      home: const Mainscreen(),
+    );
+  }
 }
