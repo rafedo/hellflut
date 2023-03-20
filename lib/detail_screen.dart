@@ -34,10 +34,10 @@ class Detailscreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Column(
-                    children: const <Widget>[
-                      Icon(Icons.star),
+                    children: <Widget>[
+                      const Icon(Icons.star),
                       Text(
-                        '*****',
+                        food.star,
                       ),
                     ],
                   ),
@@ -50,10 +50,10 @@ class Detailscreen extends StatelessWidget {
                     ],
                   ),
                   Column(
-                    children: const <Widget>[
-                      Icon(Icons.attach_money),
+                    children: <Widget>[
+                      const Icon(Icons.attach_money),
                       Text(
-                        'Rp. 10.0000 - 50.0000',
+                        food.harga,
                       ),
                     ],
                   )
@@ -62,10 +62,10 @@ class Detailscreen extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.all(16.0),
-              child: const Text(
-                'banyak makanan tradisional indonesia contohnya gudeg berasal dari jogjakarta,rendang dari mingkabau',
+              child: Text(
+                food.desc,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16.0, fontFamily: 'Oxygen'),
+                style: const TextStyle(fontSize: 16.0, fontFamily: 'Oxygen'),
               ),
             ),
             SizedBox(
@@ -77,8 +77,7 @@ class Detailscreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
-                      child: Image.network(
-                          'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg'),
+                      child: Image.asset('assets/images/food1.jpeg'),
                     ),
                   ),
                   Padding(
@@ -91,13 +90,13 @@ class Detailscreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Image.asset('assets/images/food.jpeg')),
+                        child: Image.asset('assets/images/food1.jpeg')),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Image.asset('assets/images/food1.jpeg')),
+                        child: Image.asset('assets/images/food.jpeg')),
                   ),
                 ],
               ),

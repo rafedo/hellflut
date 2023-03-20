@@ -1,28 +1,16 @@
 class Food {
   String name;
+  String star;
   String location;
+  String harga;
+  String desc;
   String imageAsset;
   Food({
     required this.name,
+    required this.star,
     required this.location,
+    required this.harga,
+    required this.desc,
     required this.imageAsset,
   });
 }
-
-var foodList = [
-  Food(
-    name: 'Gudeg',
-    location: 'Jogja',
-    imageAsset: 'assets/images/food.jpeg',
-  ),
-  Food(
-    name: 'Rendang',
-    location: 'Minangkabau',
-    imageAsset: 'assets/images/food1.jpeg',
-  ),
-  Food(
-    name: 'es pleret',
-    location: 'blitar',
-    imageAsset: 'assets/images/food.jpeg',
-  ),
-];
