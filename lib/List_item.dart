@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'model/food.dart';
+import 'package:hellpro/model/food.dart';
 
 class ListItem extends StatelessWidget {
   final Food food;
   final bool isDone;
   final Function(bool? value) onCheckboxClick;
   const ListItem({
+    super.key,
     required this.food,
     required this.isDone,
     required this.onCheckboxClick,
@@ -47,7 +48,7 @@ class ListItem extends StatelessWidget {
             ),
           ),
           Checkbox(
-              checkColor: Colors.blueAccent,
+              checkColor: Colors.white,
               value: isDone,
               onChanged: onCheckboxClick)
         ],

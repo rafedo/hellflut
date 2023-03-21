@@ -33,9 +33,7 @@ class _MainScreenState extends State<Mainscreen> {
           )
         ],
       ),
-      body: Foodlist(
-        doneFoodList: [],
-      ),
+      body: Foodlist(),
     );
   }
 }

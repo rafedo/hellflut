@@ -6,15 +6,12 @@ import 'package:hellpro/provider/done_food_provider.dart';
 import 'package:provider/provider.dart';
 
 class Foodlist extends StatefulWidget {
-  final List<Food> doneFoodList;
-
-  const Foodlist({Key? key, required this.doneFoodList}) : super(key: key);
+  const Foodlist({Key? key}) : super(key: key);
   @override
-  _FoodlistState createState() => _FoodlistState(doneFoodList);
+  _FoodlistState createState() => _FoodlistState();
 }
 
 class _FoodlistState extends State<Foodlist> {
-  final List<Food> doneFoodList;
   final List<Food> foodList = [
     Food(
       name: 'Rendang',
@@ -33,15 +30,21 @@ class _FoodlistState extends State<Foodlist> {
       desc: 'es pleret minuman khas blitar',
       imageAsset: 'assets/images/pleret.jfif',
     ),
+    Food(
+      name: 'es pleret',
+      star: '3.9',
+      location: 'blitar',
+      harga: 'RP 5.000',
+      desc: 'es pleret minuman khas blitar',
+      imageAsset: 'assets/images/pleret.jfif',
+    ),
   ];
-
-  _FoodlistState(this.doneFoodList);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
-        final Food food = doneFoodList[index];
+        final Food food = foodList[index];
         return InkWell(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -52,7 +55,7 @@ class _FoodlistState extends State<Foodlist> {
             builder: (context, DoneFoodProvider data, widget) {
               return ListItem(
                 food: food,
-                isDone: doneFoodList.contains(food),
+                isDone: data.doneFoodList.contains(food),
                 onCheckboxClick: (bool? value) {
                   data.complete(food, value!);
                 },
