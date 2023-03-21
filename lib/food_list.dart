@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hellpro/detail_screen.dart';
 import 'package:hellpro/model/food.dart';
 import 'package:hellpro/List_item.dart';
+import 'package:hellpro/provider/done_food_provider.dart';
+import 'package:provider/provider.dart';
 
 class Foodlist extends StatefulWidget {
   final List<Food> doneFoodList;
@@ -39,22 +41,22 @@ class _FoodlistState extends State<Foodlist> {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
-        final Food food = foodList[index];
+        final Food food = doneFoodList[index];
         return InkWell(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return Detailscreen(food: food);
             }));
           },
-          child: ListItem(
-            food: food,
-            isDone: doneFoodList.contains(food),
-            onCheckboxClick: (bool? value) {
-              setState(() {
-                if (value != null) {
-                  value ? doneFoodList.add(food) : doneFoodList.remove(food);
-                }
-              });
+          child: Consumer<DoneFoodProvider>(
+            builder: (context, DoneFoodProvider data, widget) {
+              return ListItem(
+                food: food,
+                isDone: doneFoodList.contains(food),
+                onCheckboxClick: (bool? value) {
+                  data.complete(food, value!);
+                },
+              );
             },
           ),
         );

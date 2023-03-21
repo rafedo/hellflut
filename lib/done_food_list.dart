@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:hellpro/model/food.dart';
+import 'package:hellpro/provider/done_food_provider.dart';
+import 'package:provider/provider.dart';
 
 class DoneFoodList extends StatelessWidget {
-  final List<Food> doneFood;
-  const DoneFoodList({Key? key, required this.doneFood}) : super(key: key);
-
+  const DoneFoodList({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final List<Food> doneFoodList = Provider.of<DoneFoodProvider>(
+      context,
+      listen: false,
+    ).doneFoodList;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Makanan Tradisional yang sudah pernah dicoba'),
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {
-          final Food food = doneFood[index];
+          final Food food = doneFoodList[index];
           return Card(
             color: Colors.white60,
             child: Row(
@@ -29,7 +34,7 @@ class DoneFoodList extends StatelessWidget {
             ),
           );
         },
-        itemCount: doneFood.length,
+        itemCount: doneFoodList.length,
       ),
     );
   }
